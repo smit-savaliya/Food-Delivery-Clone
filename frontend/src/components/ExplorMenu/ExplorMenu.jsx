@@ -6,7 +6,7 @@ function ExplorMenu({category,setCetegory}) {
   return (
     <div className='explor-menu' id='explor-menu'>
         <h1>Explore Our Menu</h1>
-        <p className='explor-menu-text'>Choose your favourite food...and enjoy it</p>
+        <p className='explor-menu-text'>Choose your favourite food...and enjoy it hello hwo are you</p>
         <div className="explor-menu-list">
             {
                 menu_list.map((item , index)=>(
