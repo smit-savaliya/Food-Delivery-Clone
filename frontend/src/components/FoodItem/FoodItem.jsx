@@ -13,12 +13,12 @@ function FoodItem({id,name , description ,price , image }) {
       <div className="food-item-img-container">
         <img className='food-item-image' src={image} alt="" />
         {
-            !itemCount?
-            <img className='add' onClick={()=>setItemCount(prev=>prev+1)} src={assets.add_icon_white}/>
+            !cartItems[id]?
+            <img className='add' onClick={()=>addToCart(id)} src={assets.add_icon_white}/>
             :<div className='food-item-counter'>
-                <img onClick={()=> setItemCount(prev=>prev-1)} src={assets.remove_icon_red} alt="" />
-                <p className='countshow'>{itemCount}</p>
-                <img onClick={()=> setItemCount(prev=>prev+1)} src={assets.add_icon_green} alt="" />
+                <img onClick={()=> removeFromCart(id)} src={assets.remove_icon_red} alt="" />
+                <p className='countshow'>{cartItems[id]}</p>
+                <img onClick={()=> addToCart(id)} src={assets.add_icon_green} alt="" />
             </div>
         }
       </div>
