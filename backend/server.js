@@ -2,6 +2,8 @@ import express from "express"
 import cors from "cors"
 import foodRoter from "./routes/foodRoute.js"
 import {db} from "./config/db.js"
+import userRouter from "./routes/userRoute.js"
+import "dotenv/config"
 
 
 const app = express()
@@ -14,6 +16,7 @@ app.use(cors())
 //api endpoints
 app.use("/api/food",foodRoter)
 app.use("/images", express.static("uploads"))
+app.use("/api/user",userRouter)
 
 
 app.get("/" , (req,res)=>{
