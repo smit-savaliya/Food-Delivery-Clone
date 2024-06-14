@@ -8,8 +8,9 @@ import cartRouter from "./routes/cartRoute.js"
 import orderRouter from "./routes/orderRoute.js"
 
 
+
 const app = express()
-const PORT = 8080
+
 
 //middleware
 app.use(express.json())
@@ -27,7 +28,8 @@ app.get("/" , (req,res)=>{
     res.send("backend coonected..")
 })
 
-app.listen(PORT , ()=>{
+const PORT = process.env.PORT || 8080
+app.listen( PORT, ()=>{
     console.log("server is start...")
 })
 

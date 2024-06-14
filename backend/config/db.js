@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
-const url="mongodb+srv://thesmitsavaliya0717:tims0717@cluster0.tlwleho.mongodb.net/food-delivary"
+import "dotenv/config"
+const url= process.env.MONGODB_URL
 
 mongoose.connect(url,{
     useNewUrlParser:true,
