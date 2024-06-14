@@ -1,12 +1,14 @@
-import React, {  useContext, useState } from 'react'
+import React, { useContext, useState ,useEffect} from 'react'
 import "./Login.css"
 import { assets } from '../../assets/assets'
 import { StoreContext } from '../../context/StoreContext'
 import axios from "axios"
+import { toast } from 'react-toastify'
 
 function Login({ setShowLogin }) {
 
-  const {url , token , setToken} = useContext(StoreContext)
+  const { url, token, setToken } = useContext(StoreContext)
+  
 
   const [currentState, setCurrentState] = useState("LogIn")
   const [data, setData] = useState({
@@ -15,34 +17,38 @@ function Login({ setShowLogin }) {
     password: ""
   })
 
+  
+
   const onChangeHandler = (event) => {
     const name = event.target.name
     const value = event.target.value
-    setData(prev=>({...prev,[name]:value}))
+    setData(prev => ({ ...prev, [name]: value }))
 
   }
 
 
-  const onLogin = async(event)=>{
+  const onLogin = async (event) => {
     event.preventDefault()
     let newUrl = url
-    if(currentState=="LogIn"){
+    if (currentState == "LogIn") {
       newUrl += "/api/user/login"
-    }else{
+    } else {
       newUrl += "/api/user/register"
     }
 
-    const respoce = await axios.post(newUrl,data)
-    if(respoce.data.success){
-        setToken(respoce.data.token)
-        localStorage.setItem("token",respoce.data.token)
-        setShowLogin(false)
-    }else{
-      alert(respoce.data.message)
+    const respoce = await axios.post(newUrl, data)
+    if (respoce.data.success) {
+      setToken(respoce.data.token)
+      localStorage.setItem("token", respoce.data.token)
+      setShowLogin(false)
+      toast.success("Login succesffully")
+    } else {
+      
+      toast.error(respoce.data.message)
     }
 
   }
-  
+
   return (
     <div className='login'>
       <form onSubmit={onLogin} className="login-container">
