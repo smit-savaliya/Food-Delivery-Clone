@@ -72,4 +72,41 @@ const varifyOrder = async(req,res)=>{
             res.json({success:false , message:"Error.."})
     }
 }
-export {placeorder , varifyOrder}
+
+//user order for frontend
+const userOrders = async(req,res)=>{
+    try {
+        const orders = await OrderModel.find({userId:req.body.userId})
+        res.json({success:true , data:orders})
+    } catch (error) {
+            console.log(error);
+            res.json({success:true , message:"Error.."})
+    }
+}
+
+//listing order for admin panel
+const listOrders = async(req,res)=>{
+    try {
+        const orders = await OrderModel.find({})
+        res.json({success:true , data:orders})
+    } catch (error) {
+        console.log(error)
+        res.json({success:false , message:"Error.."})
+    }
+}
+
+
+//api for updating order status
+const updateStatus = async(req,res)=>{
+    try {
+        await OrderModel.findByIdAndUpdate(req.body.orderId , {status:req.body.status});
+        res.json({success:true , message:"Status updated.."})
+
+    } catch (error) {
+            console.log(error)
+            res.json({success:false,message:"Error.."})
+    }
+}
+
+
+export {placeorder , varifyOrder , userOrders , listOrders , updateStatus}
