@@ -17,7 +17,7 @@ function Cart() {
           <p>Price</p>
           <p>Quantity</p>
           <p>Total</p>
-          <p>Remove</p>
+          
         </div>
         <br />
         <hr />
@@ -32,7 +32,7 @@ function Cart() {
                     <p>${item.price}</p>
                     <p>{cartItems[item._id]}</p>
                     <p>${item.price * cartItems[item._id]}</p>
-                    <p className='cross' onClick={() => removeFromCart(item._id)}>X</p>
+                    <p className='cross' onClick={() => removeFromCart(item._id)}>Cancel</p>
                   </div>
                   <hr />
                 </>

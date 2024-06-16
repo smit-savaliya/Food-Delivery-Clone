@@ -27,6 +27,12 @@
 
 .cart-items-item .cross{
     cursor: pointer;
+    border: 1px solid tomato;
+    padding: 5px 5px;
+    color: red;
+    border-radius: 15px;
+    background-color: cornsilk;
+    text-align: center;
 }
 
 .cart-bottom{
@@ -96,6 +102,10 @@
 
 
 @media (max-width:750px) {
+    .cart-items-title{
+        grid-template-columns: 1fr 1fr 1fr 0.4fr 1fr;
+        
+    }
     .cart-bottom{
         flex-direction: column-reverse;
 
