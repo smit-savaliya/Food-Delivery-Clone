@@ -191,11 +191,12 @@
     }
 
     .navbar .navbar-right {
-        gap: 8px
+        gap: 5px
     }
 
     .navbar .logo {
         width: 80px;
+        
     }
 
     .navbar-right img {
@@ -209,10 +210,14 @@
     }
 
     .navbar .signin{
-        padding: 10px 30px;
+        padding: 6px 20px;
+        color: tomato;
+        
     }
     .navbar{
         /* font-size: 30px; */
+        /* gap: 30px; */
+        border-bottom: 2px solid orange;
     }
 
 
