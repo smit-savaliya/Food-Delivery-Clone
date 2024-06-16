@@ -191,11 +191,11 @@
     }
 
     .navbar .navbar-right {
-        gap: 10px
+        gap: 8px
     }
 
     .navbar .logo {
-        width: 100px;
+        width: 80px;
     }
 
     .navbar-right img {
@@ -206,6 +206,13 @@
     .navbar-search-icon .dot {
         top: -5px;
         right: -4px;
+    }
+
+    .navbar .signin{
+        padding: 10px 30px;
+    }
+    .navbar{
+        /* font-size: 30px; */
     }
 
 
