@@ -12,22 +12,35 @@ function Verify() {
     const {url} = useContext(StoreContext)
     const navigate = useNavigate()
 
-    const verifypayment = async()=>{
-        try{
-            const responce = await axios.post(url+"/api/order/verify", {success,orderId})
-        if(responce.data.success){
-            navigate("/myorders")
-        }else{
+    // const verifypayment = async()=>{
+    //     try{
+    //         const responce = await axios.post(url+"/api/order/verify", {success,orderId})
+    //     if(responce.data.success){
+    //         navigate("/myorders")
+    //     }else{
             
-            navigate("/")
-        }
-        }catch(error){
-            console.log(error)
-            navigate("/")
+    //         navigate("/")
+    //     }
+    //     }catch(error){
+    //         console.log(error)
+    //         navigate("/")
 
-        }
+    //     }
 
-    }
+    // }
+    useEffect(() => {
+        if (success === "true" && orderId) {
+            const verifyPayment = async () => {
+                try {
+                    await axios.post(`${url}/api/order/verify`, { success, orderId }, { headers: { token } });
+                    // Optionally, show a success message to the user
+                } catch (error) {
+                    console.error(error);
+                }
+            };
+            verifyPayment();
+        }
+    }, [success, orderId, url, token]);
 
     useEffect(()=>{
         // console.log(`Success: ${success}, Order ID: ${orderId}`);
