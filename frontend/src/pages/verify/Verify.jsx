@@ -9,11 +9,13 @@ function Verify() {
     const [searchParams, setSearchParams] = useSearchParams()
     const success = searchParams.get("success")
     const orderId = searchParams.get("orderId")
+    
     const {url} = useContext(StoreContext)
     const navigate = useNavigate()
 
     const verifypayment = async()=>{
         try{
+            console.log(`Success: ${success}, Order ID: ${orderId}`);
             const responce = await axios.post(url+"/api/order/verify", {success,orderId})
         if(responce.data.success){
             navigate("/myorders")
@@ -28,22 +30,10 @@ function Verify() {
         }
 
     }
-    // useEffect(() => {
-    //     if (success === "true" && orderId) {
-    //         const verifyPayment = async () => {
-    //             try {
-    //                 await axios.post(`${url}/api/order/verify`, { success, orderId }, { headers: { token } });
-    //                 // Optionally, show a success message to the user
-    //             } catch (error) {
-    //                 console.error(error);
-    //             }
-    //         };
-    //         verifyPayment();
-    //     }
-    // }, [success, orderId, url, token]);
+    
 
     useEffect(()=>{
-        // console.log(`Success: ${success}, Order ID: ${orderId}`);
+        
         verifypayment()
     }, [])
 
