@@ -23,6 +23,7 @@ function Verify() {
     }
 
     useEffect(()=>{
+        console.log(`Success: ${success}, Order ID: ${orderId}`);
         verifypayment()
     }, [])
 
