@@ -42,10 +42,10 @@ function Verify() {
         }
     }, [success, orderId, url, token]);
 
-    useEffect(()=>{
-        // console.log(`Success: ${success}, Order ID: ${orderId}`);
-        verifypayment()
-    }, [])
+    // useEffect(()=>{
+    //     // console.log(`Success: ${success}, Order ID: ${orderId}`);
+    //     verifypayment()
+    // }, [])
 
   return (
     <div className='verify'>
