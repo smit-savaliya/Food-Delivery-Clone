@@ -28,6 +28,11 @@ Live website: [Food Delivery Website](https://tomato-wx0c.onrender.com)
 - MongoDB
 - Stripe account
 
+## for paymet using this dumy number
+ - 5555 5555 5555 4444
+ - expiry date - anything future date
+ - cvv - any number can work
+
 
 
 
