@@ -6,6 +6,7 @@ import userRouter from "./routes/userRoute.js"
 import "dotenv/config"
 import cartRouter from "./routes/cartRoute.js"
 import orderRouter from "./routes/orderRoute.js"
+import path from 'path';
 
 
 
@@ -43,6 +44,15 @@ app.use("/api/order",orderRouter)
 app.get("/" , (req,res)=>{
     res.send("backend coonected..")
 })
+
+// Serve static files from the React app
+const __dirname = path.resolve();
+app.use(express.static(path.join(__dirname, 'client/build')));
+
+// Catch-all route to serve React's index.html for unknown routes
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+});
 
 const PORT = process.env.PORT || 8080
 app.listen( PORT, ()=>{
