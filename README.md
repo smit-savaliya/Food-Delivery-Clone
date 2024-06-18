@@ -33,6 +33,9 @@ Live website: [Food Delivery Website](https://tomato-wx0c.onrender.com)
  - expiry date - anything future date
  - cvv - any number can work
 
+### Contributing
+Contributions are welcome! Please fork the repository and create a pull request.
+
 
 
 
