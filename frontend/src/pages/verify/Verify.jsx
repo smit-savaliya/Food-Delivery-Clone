@@ -10,13 +10,13 @@ function Verify() {
     const success = searchParams.get("success")
     const orderId = searchParams.get("orderId")
     
-    const {url} = useContext(StoreContext)
+    const {url , token} = useContext(StoreContext)
     const navigate = useNavigate()
 
     const verifypayment = async()=>{
         try{
             console.log(`Success: ${success}, Order ID: ${orderId}`);
-            const responce = await axios.post(url+"/api/order/verify", {success,orderId})
+            const responce = await axios.post(url+"/api/order/verify", {success,orderId} , {headers:token})
         if(responce.data.success){
             navigate("/myorders")
         }else{
