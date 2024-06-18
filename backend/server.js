@@ -7,6 +7,7 @@ import "dotenv/config"
 import cartRouter from "./routes/cartRoute.js"
 import orderRouter from "./routes/orderRoute.js"
 import path from 'path';
+import { fileURLToPath } from 'url';
 
 
 
@@ -46,7 +47,8 @@ app.get("/" , (req,res)=>{
 })
 
 // Serve static files from the React app
-const __dirname = path.resolve();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 app.use(express.static(path.join(__dirname, 'client/build')));
 
 // Catch-all route to serve React's index.html for unknown routes
